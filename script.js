@@ -46,6 +46,6 @@ buttons.forEach(setButtons);
 function setButtons(button) {
     button.setAttribute('style', 'border-color: black; background-color: white; margin: 5px; font-weight: bold; font-size: 20px;');
     button.style.height = '75px';
-    button.style.width = `${450/4}px`;
+    button.style.width = '127.5px';
 }
 

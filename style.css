@@ -1,16 +1,18 @@
 body {
     display: flex;
     justify-content: center;
+    background-color: coral;
 }
 
 #frame {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 10px;
+    padding: 20px;
     height: 650px;
-    width: 500px;
+    width: 550px;
     background-color: silver;
+    border-color: black;
 }
 
 ol {
@@ -32,10 +34,29 @@ ol {
     font-weight: bold;
 }
 
+#controls {
+    display: flex;
+    gap: 10px;
+}
+
+#clear {
+    height: 75px;
+    width: 270px;
+    font-weight: bold;
+    font-size: 25px;
+    background-color: lightblue;
+}
+
+#delete {
+    height: 75px;
+    width: 270px;
+    font-weight: bold;
+    font-size: 25px;
+    background-color: lightblue;
+}
+
 #numberPad {
     display: flex;
     flex-wrap: wrap;
     height: 450px;
-    background-color: white;
-    padding: 5px;
 }
