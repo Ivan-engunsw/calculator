@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+#frame {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    height: 650px;
+    width: 500px;
+    background-color: silver;
+}
+
+ol {
+    background-color: darkolivegreen;
+    list-style-type: none;
+    margin: 0px;
+    padding: 5px;
+    height: 150px;
+    text-align: end;
+}
+
+#history {
+    opacity: 80%;
+    font-size: 25px;
+}
+
+#answer {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#numberPad {
+    display: flex;
+    flex-wrap: wrap;
+    height: 450px;
+    background-color: white;
+    padding: 5px;
+}
