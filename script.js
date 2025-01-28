@@ -16,6 +16,10 @@ function multiply(number1, number2) {
 }
 
 function divide(number1, number2) {
+    // checks for invalid devision.
+    if (number2 === 0) {
+        return 'You tried';
+    }
     return number1 / number2;
 }
 
@@ -68,16 +72,26 @@ function populateDisplay(e) {
         if (checkValidInput(display)) {
             currentResult = operate(number1, number2, operator);
             answer.textContent = currentResult;
-            display = '' + currentResult;
+            if (currentResult === 'You tried') {
+                display = '';
+            } else {
+                display = '' + currentResult;
+            }
         }
     } else if (checkOperator(e.target.innerText) && checkValidInput(display)) {
         // updates the answer and history on display if an operator is clicked
         currentResult = operate(number1, number2, operator);
         answer.textContent = currentResult;
-        display = currentResult + e.target.innerText;
-        displayHistory.textContent = display;
+        if (currentResult === 'You tried') {
+            display = '';
+        } else {
+            display = currentResult + e.target.innerText;
+            displayHistory.textContent = display;
+        }
     } else {
-        if (checkExcessiveDots(e)) {
+        // checks for excessive operators and dots
+        if (checkExcessiveDots(e) || 
+            (checkOperator(e.target.innerText) && checkOperator(display[display.length - 1]))) {
             return;
         }
         // adds to the history section of the display
@@ -115,13 +129,6 @@ function checkOperator(character) {
 }
 
 function checkValidInput(expression) {
-    // checks for invalid devision. The * in regex is for 0 or more.
-    if (expression.match(/\d*[÷][0]/)) {
-        display = '';
-        answer.textContent = 'You tried!';
-        return false;
-    }
-
     // when the expression has 'number operator number' format. The + in regex is for 1 or more.
     if (expression.match(/\d+[+×÷-]\d+/)) {
         // we adding 1 below to account for the beginning '-' if there is one
@@ -133,7 +140,7 @@ function checkValidInput(expression) {
     }
     
     //when expression has 'operator number' format so we use 0 as first number
-    if (expression.match(/[+×÷-]\d+/)) {
+    if (expression.match(/^[+×÷-]\d+/)) {
         operator = expression[0];
         number2 = parseFloat(expression.slice(1));
         return true;
