@@ -130,7 +130,7 @@ function checkOperator(character) {
 
 function checkValidInput(expression) {
     // when the expression has 'number operator number' format. The + in regex is for 1 or more.
-    if (expression.match(/\d+[+×÷-]\d+/)) {
+    if (expression.match(/\d+[+×÷-][.]?\d+/)) {
         // we adding 1 below to account for the beginning '-' if there is one
         let operatorIndex = expression.slice(1).search(operatorRegex) + 1;
         number1 = parseFloat(expression.slice(0, operatorIndex));
@@ -140,7 +140,7 @@ function checkValidInput(expression) {
     }
     
     //when expression has 'operator number' format so we use 0 as first number
-    if (expression.match(/^[+×÷-]\d+/)) {
+    if (expression.match(/^[+×÷-][.]?\d+/)) {
         operator = expression[0];
         number2 = parseFloat(expression.slice(1));
         return true;
