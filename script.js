@@ -54,9 +54,8 @@ const buttons = numberPad.querySelectorAll('button');
 buttons.forEach(setButtons);
 
 function setButtons(button) {
-    button.setAttribute('style', 'border-color: black; background-color: white; margin: 5px; font-weight: bold; font-size: 20px;');
-    button.style.height = '75px';
-    button.style.width = '127.5px';
+    button.setAttribute('style', 'border-color: black; background-color: white; margin: 5px; font-weight: bold; font-size: 20px; max-height: 75px; max-width: 127.5px;');
+    button.style.width = '100%';
 }
 
 // sets up the original content on the calculator display
