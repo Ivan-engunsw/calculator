@@ -37,16 +37,23 @@ function operate(number1, number2, operator) {
 }
 
 createButtons();
+const numberPad = document.getElementById('numberPad');
 
 // create buttons for the numpad
 function createButtons() {
-    const arr = ['7', '8', '9', '÷', '4', '5', '6', '×', '1', '2', '3', '-', '.', '0', '=', '+'];
-    const numberPad = document.getElementById('numberPad');
-    for (let i = 0; i < 16; i++) {
-        let button = document.createElement('button');
-        numberPad.appendChild(button);
-        button.textContent = arr[i];
-        button.addEventListener('click', populateDisplay);
+    const arr = [['7', '8', '9', '÷'], ['4', '5', '6', '×'], ['1', '2', '3', '-'], ['.', '0', '=', '+']];
+    let rowNum = 1;
+    for (let row of arr) {
+        let currentRow = document.getElementById('row' + rowNum);
+
+        for (let rowValue of row) {
+            let button = document.createElement('button');
+            currentRow.appendChild(button);
+            button.textContent = rowValue;
+            button.addEventListener('click', populateDisplay);
+        }
+
+        rowNum++;
     }
 }
 
@@ -54,8 +61,7 @@ const buttons = numberPad.querySelectorAll('button');
 buttons.forEach(setButtons);
 
 function setButtons(button) {
-    button.setAttribute('style', 'border-color: black; background-color: white; margin: 5px; font-weight: bold; font-size: 20px; max-height: 75px; max-width: 127.5px;');
-    button.style.width = '100%';
+    button.setAttribute('style', 'border-color: black; background-color: white; margin: 5px; font-weight: bold; font-size: 20px; height: 90%; width: 90%');
 }
 
 // sets up the original content on the calculator display

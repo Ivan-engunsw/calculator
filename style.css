@@ -1,19 +1,21 @@
 body {
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: coral;
-    height: 700px;
+    height: 100vh;
 }
 
 #frame {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 20px;
-    height: 100%;
-    max-height: 650px;
-    width: 80%;
-    max-width: 550px;
+    gap: 0.8rem;
+    padding: 1rem;
+    height: 90%;
+    width: 90%;
+    max-height: 42rem;
+    max-width: 42rem;
+    margin: 1rem;
     background-color: silver;
     border-color: black;
 }
@@ -22,59 +24,56 @@ body {
     background-color: darkolivegreen;
     margin: 0px;
     padding: 5px;
-    max-height: 150px;
-    height: 80%;
+    height: 90%;
+    max-height: 10rem;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    gap: 8px;
+    gap: 1rem;
 }
 
 #history {
     opacity: 80%;
-    font-size: 25px;
+    font-size: 1.7rem;
     word-break: break-all;
 }
 
 #answer {
-    font-size: 30px;
+    font-size: 2rem;
     font-weight: bold;
     word-break: break-all;
-
 }
 
 #controls {
     display: flex;
-    gap: 10px;
+    gap: 1rem;
 }
 
 #clear {
-    max-height: 75px;
-    max-width: 270px;
-    height: 80%;
-    width: 80%;
+    height: 2rem;
+    width: 21rem;
     font-weight: bold;
-    font-size: 25px;
-    padding: 6px;
+    font-size: 1.5rem;
     background-color: lightblue;
 }
 
 #delete {
-    max-height: 75px;
-    max-width: 270px;
-    height: 80%;
-    width: 80%;
+    height: 2rem;
+    width: 21rem;
     font-weight: bold;
-    font-size: 25px;
-    padding: 6px;
+    font-size: 1.5rem;
     background-color: lightblue;
 }
 
 #numberPad {
     display: flex;
-    flex-wrap: wrap;
-    max-height: 450px;
-    max-width: 550px;
-    height: 100%;
+    flex-direction: column;
+    height: 90%;
+}
+
+.row {
+    display: flex;
+    height: 90%;
+    width: 100%
 }
